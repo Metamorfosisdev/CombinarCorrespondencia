@@ -1,0 +1,10 @@
+def menu():
+    print("********************")
+    print("  ***Merge mail***  ")
+    print("[1] Admin")
+    print("[2] Upload")
+    print("[3] Update")
+    print("[4] Delete")
+    print("[5] Exit ")
+    print("  ***Merge mail***  ")
+    print("********************\n")

@@ -1,0 +1,17 @@
+Nombre: 
+Apellido1: 
+Apellido2: 
+Cargo: 
+Empresa: 
+Calle: 
+NumeroExt: 
+NumeroInt: 
+Colonia: 
+Municipio: 
+Estado: 
+CP: 
+Telefono: 
+email: 
+fechaNacimiento: 
+Edad: 
+Sexo: 

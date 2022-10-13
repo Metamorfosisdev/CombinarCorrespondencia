@@ -1,0 +1,17 @@
+
+Nombre: Samuel
+Apellido1: Cruz
+Apellido2: Martinez
+Cargo: Estudiante
+Empresa: CETI
+Calle: Colomos
+NumeroExt: 1905
+NumeroInt: A
+Colonia: Guadalajara
+Municipio: Jalisco
+Estado: 45215
+CP: 3325539823
+Telefono: samber@gmail.com
+email: 05/07/98
+fechaNacimiento: 24
+Edad: Masculino

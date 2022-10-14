@@ -1,0 +1,17 @@
+
+Nombre: Jose
+Apellido1: Flores
+Apellido2: Meza
+Cargo: Mamá
+Empresa: Yermo
+Calle: Emanuel M. Dieguéz
+NumeroExt: 47
+NumeroInt: A
+Colonia: Zapopan
+Municipio: Jalisco
+Estado: 45220
+CP: 3312230626
+Telefono: epireptile@gmail.com
+email: 16/09/76
+fechaNacimiento: 46
+Edad: Femenino

@@ -1,10 +1,15 @@
-#from fileinput import close
-from turtle import update
+import os
+
+
+
 from dircount import countfiles
 from change_path import changePath
-from print_files import printFiles
 from show_menu import menu
 from get_filenames import getFileNames
+from show_file import showFile
+from search_word import searchWord
+from admin_menu import adminMenu
+from pdf_convert import pdfConvert
 
 def combinar_archivos(folio, persona, persona_folio):
 
@@ -54,18 +59,81 @@ oficio = 'oficio.txt'
 
 #Show the menu
 menu()
-option = int(input("Enter yor option: "))
+option = int(input("Enter yor option: \n"))
 
 
 while option != 5: 
     if option == 1:
 
-        print("Admin Panel \n")
+        print("Admin Panel")
+
+        adminMenu()
+        aoption = int(input("Enter yor option: \n"))
+        
+        while aoption !=6:
+            
+            if aoption == 1:
+                print("\n*** Upload files ***\n")
+                files = []
+                for file in os.listdir(os.getcwd()+"\\uploads"):
+                    if file.endswith(".txt"):
+                        files.append(file)
+                print("You have: " + str(len(files)) + " upload files \n")
+                print(files)
+
+
+            elif aoption == 2:
+
+                #Updated files
+                print("\n*** Updated files ***")
+                #Return the no. files updated
+                nfiles = countfiles("uploads\\updates")
+                print("\nYou have: " + str(nfiles) + " updated files\n")
+                #Show the files
+                getFileNames(os.getcwd()+"\\uploads\\updates")
+
+            
+            elif aoption == 3:
+
+                #Deleted files
+                print("\n*** Deleted files ***")
+                #Return no. files updated
+                nfiles = countfiles("uploads\\bin")
+                print("\nYou have: " + str(nfiles) + " deleted files\n")
+                #Show the files
+                getFileNames(os.getcwd()+"\\uploads\\bin")
+                
+
+            elif aoption == 4:
+
+                #Pdf converter
+                print("\n***Pdf converter ***")
+                path = input("Enter the path of the file as: uploads\\raul.txt \n")
+                filename = input("Enter the pdf name: \n")
+                pdfConvert(os.getcwd() + "\\" + path, filename)
+            
+            elif aoption == 5:
+                print("Docx converter")
+            else: 
+                print ("Invalid option: ")  
+
+            adminMenu()
+            aoption = int(input("Enter yor option: \n"))
+        
+        
+        
+
+        
+
+       
+
+            
+
 
     elif option == 2:
 
         #Upload new register 
-        print("***Upload new file*** \n")
+        print("\n ***Upload new file*** \n")
         #Input the new filename 
         newfile = input('Enter the new filename: \n')
         newfile = newfile + '.txt'
@@ -76,23 +144,46 @@ while option != 5:
 
     elif option == 3:
 
-        print("***Update file*** \n")
+        print("\n ***Update file*** \n")
+        #Show all file into uploads
         getFileNames("uploads\\")
         
         updfile = input("*** Wich file would you like to update? *** \n")
-        argfile = input("***What would you like to change?")
+
+        #Show the information of the file 
+     
+        exist = showFile(updfile)
+
+        if exist == "true":
+            argfile = input("***What would you like to change?*** \n")
+            #Update the file
+            searchWord("uploads\\" + updfile, argfile)
+            #Move to updates 
+            #print(updfile + os.getcwd() + "\\uploads")
+            changePath( updfile , "updates", os.getcwd() + "\\uploads")
+
+        else:
+
+            break
+
 
         #print(argfile + "has been updated into" + updfile)
         #changePath(updfile, "updates")
 
 
     elif option == 4:
-        print("Deleted files \n")
+        print("\n ***Delete a file*** \n")
+
+        #Show files to delete
+        getFileNames("uploads\\")
+        delfile= input("Which file do you want to delete? \n")
+        changePath(delfile, "bin", os.getcwd() + "\\uploads")
+
     else:
         print("Invalid option \n")
 
     menu()
-    option = int(input("Enter yor option: \n"))
+    option = int(input("Enter your option: \n"))
 
 
 print("Come soon!")

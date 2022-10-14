@@ -3,11 +3,14 @@ import os
 
 #Function for change the Path 
 
-def changePath(file, dir):
-    current_path = os.getcwd()
+def changePath(file, dir, current_path=os.getcwd()):
+
     src_path = current_path + "\\" + file
     dst_path = current_path + "\\" + dir + "\\" + file 
 
+    print("src: "+src_path)
+    print("dst: "+dst_path)
+    
     try:
         shutil.move(src_path, dst_path)
         print(file + " INTO " + dir + " SUCCESSFULLY \n")

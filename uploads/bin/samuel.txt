@@ -1,5 +1,5 @@
 
-Nombre: Samuel
+Nombre: SAMUEL
 Apellido1: Cruz
 Apellido2: Martinez
 Cargo: Estudiante

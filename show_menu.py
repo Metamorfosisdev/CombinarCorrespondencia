@@ -1,5 +1,5 @@
 def menu():
-    print("********************")
+    print("\n ********************")
     print("  ***Merge mail***  ")
     print("[1] Admin")
     print("[2] Upload")

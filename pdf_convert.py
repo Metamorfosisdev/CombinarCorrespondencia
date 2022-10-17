@@ -1,4 +1,5 @@
 from fpdf import FPDF
+import os
 
 
 
@@ -15,6 +16,7 @@ def pdfConvert(path, filename):
             pdf.cell(200, 10, txt = l1, ln = 1, align = 'L') 
 
         pdf.output(filename + ".pdf")
+        os.system(filename + ".pdf")
    
    
 

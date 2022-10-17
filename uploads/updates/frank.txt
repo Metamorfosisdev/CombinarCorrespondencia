@@ -1,0 +1,18 @@
+
+Nombre: Frank
+Apellido1: Nives
+Apellido2: Reyes
+Cargo: QFB
+Empresa: Gelpharma
+Calle: Av. Vallarta
+NumeroExt: 1905
+NumeroInt: A
+Colonia: La venta
+Municipio: Guadalajara
+Estado: Jalisco
+CP: 45215
+Telefono: 3318441634
+email: aurora_nieves@hotmail.com
+fechaNacimiento: 09/Junio/99
+Edad: 23
+Sexo: Femenina

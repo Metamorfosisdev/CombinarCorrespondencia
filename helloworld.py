@@ -1,7 +1,7 @@
 import os
 
 
-
+from docx_convert import docxConvert
 from dircount import countfiles
 from change_path import changePath
 from show_menu import menu
@@ -33,23 +33,6 @@ def combinar_archivos(folio, persona, persona_folio):
 
     except FileNotFoundError:
         print("A file could not be found")
-
-
-
-
-
-#Print files
-
-#printFiles(3)
-
-#Count deleted
-
-#print( "Deleted: " + str(countfiles("bin")))
-
-#Count uploads
-
-#print( "Uploads: "+ str(countfiles("uploads")))
-
 
 
 #Define txt files for the format 
@@ -113,7 +96,11 @@ while option != 5:
                 pdfConvert(os.getcwd() + "\\" + path, filename)
             
             elif aoption == 5:
-                print("Docx converter")
+                print("\n***Docx converter ***")
+                path = input("Enter the path of the file as: uploads\\raul.txt \n")
+                filename = input("Enter the docx name: \n")
+                docxConvert(os.getcwd() + "\\" + path, filename)
+
             else: 
                 print ("Invalid option: ")  
 
@@ -121,15 +108,6 @@ while option != 5:
             aoption = int(input("Enter yor option: \n"))
         
         
-        
-
-        
-
-       
-
-            
-
-
     elif option == 2:
 
         #Upload new register 

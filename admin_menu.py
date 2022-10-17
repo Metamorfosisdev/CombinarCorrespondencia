@@ -1,7 +1,7 @@
 
 def adminMenu():
-    
-    print("\n *** Admin menu ***  ")
+    print("\n********************")
+    print("*** Admin menu ***  ")
     print("[1] Upload files")
     print("[2] Updated files")
     print("[3] Deleted files")

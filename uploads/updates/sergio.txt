@@ -1,0 +1,18 @@
+
+Nombre: Sergio
+Apellido1: Perez
+Apellido2: Isair
+Cargo: dev
+Empresa: Dabill
+Calle: Acueducto
+NumeroExt: 1905
+NumeroInt: A
+Colonia: Providencia
+Municipio: Guadalajara
+Estado: Jalisco
+CP: 45215
+Telefono: 3318441634
+email: checo@hotmail.com
+fechaNacimiento: 09/Junio/99
+Edad: 23
+Sexo: Hombre

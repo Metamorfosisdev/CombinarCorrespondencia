@@ -45,7 +45,7 @@ menu()
 option = int(input("Enter yor option: \n"))
 
 
-while option != 5: 
+while option != 6: 
     if option == 1:
 
         print("Admin Panel")
@@ -96,10 +96,14 @@ while option != 5:
                 pdfConvert(os.getcwd() + "\\" + path, filename)
             
             elif aoption == 5:
-                print("\n***Docx converter ***")
+                print("\n*** Docx converter ***")
                 path = input("Enter the path of the file as: uploads\\raul.txt \n")
                 filename = input("Enter the docx name: \n")
                 docxConvert(os.getcwd() + "\\" + path, filename)
+            
+            elif aoption == 6:
+                print("\n*** DB ***")
+                
 
             else: 
                 print ("Invalid option: ")  

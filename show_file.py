@@ -1,9 +1,9 @@
 
 
-
+#send the file with the path 
 def showFile(file):
     try:
-        file = open("uploads/" + file, mode= "r", encoding="utf-8")
+        file = open(file, mode= "r", encoding="utf-8")
         print(file.read())
         return "true"
     except FileNotFoundError:

@@ -1,6 +1,8 @@
 import os
 
-
+from add_register import addRegister
+from count_lines import newId
+from db_menu import dbMenu
 from docx_convert import docxConvert
 from dircount import countfiles
 from change_path import changePath
@@ -160,6 +162,72 @@ while option != 6:
         getFileNames("uploads\\")
         delfile= input("Which file do you want to delete? \n")
         changePath(delfile, "bin", os.getcwd() + "\\uploads")
+
+    elif option == 5:
+
+        dbMenu()
+        dboption = int(input("Enter your option: \n"))
+
+        while dboption != 4:
+
+            if dboption == 1:
+                #Upload new register in database
+                print("upload")
+                
+                #New id
+                id = newId()
+
+                #TODO: CUSTOM PROPERTIES UNCOMMENT THIS
+
+                #Add the params for the format
+                #instituto = input("Enter your School: \n")
+                #nombre = input("Enter the student name: \n")
+                #registro = input("Enter the student register: \n")
+                #carrera = input("Enter the student career: \n")
+                #duracion = input("Enter the duration career: \n")
+                #actual = input("Enter the actual duration: \n")
+                #fecha = input("Enter the date: \n")
+                #responsable = input("Enter the current supervisor \n")
+                #cargo = input("Enter the supervisor position: \n")
+                #correo = input("Enter the supervisor email \n")	
+                #telefono = input("Enter the school number: \n")
+                #domicilio = input("Enter the school address: \n")
+                #colonia = input("Enter the school colony: \n")
+                #cp = input("Enter the school cp: \n")
+
+                #Add register with the new id
+                #addRegister(id, instituto, nombre, registro, carrera, duracion, actual, fecha, responsable, cargo, correo, telefono, domicilio, colonia, cp)
+
+                addRegister(id, "UVM", "RUBI ESPINAL FLORES", "14301085", "INGENIERIA FORECENCE", "9", "5", "20 Octubre 2022", "ING. AHTZIRY", "DIRECTORA", "aht@hotmail.com", "3320912074", "Prolo. Revolcion", "Nextipac", "45220")
+            
+            elif dboption == 2:
+                print("*** update ***")
+                
+                #WICH REGISTER WOULD YOU LIKE TO UPDATE
+                showFile("DB.txt")
+                
+                upreg = input("Which file would you like to update")
+
+                #We access for the id register instead of lines in the txt file 
+
+
+
+            elif dboption == 3:
+                print("delete")
+
+            else:
+                print("something is wrong")
+            
+            dbMenu()
+            dboption = int(input("Enter your option: \n"))
+
+
+
+            
+
+        
+
+
 
     else:
         print("Invalid option \n")

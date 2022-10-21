@@ -48,8 +48,8 @@ option = int(input("Enter yor option: \n"))
 
 
 while option != 6: 
-    if option == 1:
-
+    if option == 1:                 
+        
         print("Admin Panel")
 
         adminMenu()

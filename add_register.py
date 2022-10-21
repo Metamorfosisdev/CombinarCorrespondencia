@@ -1,6 +1,6 @@
 
 #Adding new register
-from atexit import register
+
 
 
 def addRegister(id, instituto, nombre, registro, carrera, duracion, actual, fecha, responsable, cargo, correo, telefono, domicilio, colonia, cp):

@@ -4,6 +4,7 @@ def dbMenu():
     print("[1] Upload")
     print("[2] Update")
     print("[3] Delete")
-    print("[4] DB Exit ")
+    print("[4] Show updates and deletes files")
+    print("[5] DB Exit ")
     print("  ***DB Menu***  ")
     print("********************\n")

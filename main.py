@@ -1,5 +1,6 @@
 import os
 
+from db_update import searchId
 from add_register import addRegister
 from count_lines import newId
 from db_menu import dbMenu
@@ -168,7 +169,7 @@ while option != 6:
         dbMenu()
         dboption = int(input("Enter your option: \n"))
 
-        while dboption != 4:
+        while dboption != 5:
 
             if dboption == 1:
                 #Upload new register in database
@@ -198,34 +199,56 @@ while option != 6:
                 #Add register with the new id
                 #addRegister(id, instituto, nombre, registro, carrera, duracion, actual, fecha, responsable, cargo, correo, telefono, domicilio, colonia, cp)
 
+
+                #TODO: COMMENT THIS FOR CUSTOM UPLOAD
                 addRegister(id, "UVM", "RUBI ESPINAL FLORES", "14301085", "INGENIERIA FORECENCE", "9", "5", "20 Octubre 2022", "ING. AHTZIRY", "DIRECTORA", "aht@hotmail.com", "3320912074", "Prolo. Revolcion", "Nextipac", "45220")
             
             elif dboption == 2:
+
                 print("*** update ***")
-                
+
                 #WICH REGISTER WOULD YOU LIKE TO UPDATE
                 showFile("DB.txt")
                 
-                upreg = input("Which file would you like to update")
+                upreg = input("Which file would you like to update? \n")
+                upreg = str(upreg) + ","
 
-                #We access for the id register instead of lines in the txt file 
-
+                #Search ID and if it exist it will be updated and added to updates.txt
+                searchId(upreg, "update")
 
 
             elif dboption == 3:
+
                 print("delete")
+            
+                #WICH REGISTER WOULD YOU LIKE TO DELETE
+                showFile("DB.txt")
+
+                delreg = input("Which file would you like to delete? \n")
+                delreg = str(delreg) + ","
+                
+                #Search ID and if it exist it will be deleted and added to deletes.txt
+                searchId(delreg, "delete")
+
+            elif dboption == 4:
+
+                print("*** show updated and deleted files *** \n")
+                
+                print("Updates files: \n")
+                showFile("updates.txt")
+
+                print("Deletes files: \n")
+                showFile("deletes.txt")
+                
+                
+                
+                
 
             else:
-                print("something is wrong")
+                print("Invalid option \n")
             
             dbMenu()
             dboption = int(input("Enter your option: \n"))
-
-
-
-            
-
-        
 
 
 

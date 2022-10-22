@@ -1,8 +1,7 @@
 #update register 
-def searchId ():
+def searchId (id, action):
 
-    #Id send it for the client
-    id = "1,"
+
 
     #Save ids in the db
     with open("DB.txt", "r", encoding="utf-8") as f:
@@ -14,7 +13,6 @@ def searchId ():
 
     if id in ids:
 
-        print("the value exist")
 
         #Found the line in the txt file
         pos = 0
@@ -24,8 +22,7 @@ def searchId ():
                 break
             pos = pos + 1
 
-        #position to the line to update
-        print("The value exist in: " + str(pos))
+        
 
         #Printing the line to update
         doc = open("DB.txt", "r", encoding= "utf-8")
@@ -33,21 +30,27 @@ def searchId ():
         doc.close()
         print(line[pos])
 
-        #Update the file
-        update(pos)
+        #Update the register
+        if action == 'update':
+            update(pos)
+        
+        #Delete the register
+        if action == 'delete':
+            delete(pos)
+        
 
     else:
         print("the value does not exist")
 
 def update(line):
-    #new = input("What would you like to update: \n")
-
+    old = input("What would you like to update: \n")
+    new = input("What would be the new value? \n")
 
     with open("DB.txt", "r", encoding="utf-8") as f:
         data = f.readlines()
 
     #New data to update
-    newdata = data[line].replace("DIRECTOR" ,"PRESIDENTE")
+    newdata = data[line].replace(old , new)
 
     #Assing the new data
     data[line] = newdata
@@ -59,7 +62,34 @@ def update(line):
 
     print("data updated: " + newdata)
 
+    with open("updates.txt", "a", encoding="utf-8") as f:
+        f.write(newdata)
     
 
-searchId()
+def delete(delreg):
+    print("line to delete: " + str(delreg))
+    
+
+    try: 
+        with open("DB.txt", "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        
+        deletefile = lines[delreg]
+        pos = 0
+        with open("DB.txt", "w", encoding="utf-8") as fw:
+
+            for line in lines:
+
+                if pos != int(delreg):
+                    fw.write(line)
+
+                pos += 1
+
+            with open("deletes.txt", "a", encoding="utf-8") as f:
+                f.write(deletefile)
+            
+            print("Register deleted successfully")
+
+    except:
+        print("Something went wrong with the DB file")
 

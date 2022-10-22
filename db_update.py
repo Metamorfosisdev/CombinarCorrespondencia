@@ -38,6 +38,9 @@ def searchId (id, action):
         if action == 'delete':
             delete(pos)
         
+        if action == 'generate':
+            generate(pos)
+        
 
     else:
         print("the value does not exist")
@@ -93,3 +96,36 @@ def delete(delreg):
     except:
         print("Something went wrong with the DB file")
 
+
+def generate(pos):
+    print("generating certificate...\n")
+    
+
+    try: 
+        with open("DB.txt", "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+            array = lines[pos].split(",")
+            
+            fin = open("constancia.txt", "rt", encoding= "utf-8")
+            
+            fout = open(array[0]+".txt", "wt", encoding= "utf-8")
+            
+            for line in fin:
+                fout.write(line.replace("INSTITUTO", array[1]).replace(
+                    "NOMBRE", array[2]).replace("REGISTRO", array[3]).replace(
+                        "CARRERA", array[4]).replace("DURACION", array[5]).replace(
+                            "ACTUAL", array[6]).replace("FECHA", array[7]).replace(
+                                "RESPONSABLE", array[8]).replace("CARGO", array[9]).replace(
+                                    "CORREO", array[10]).replace("TELEFONO", array[11]).replace(
+                                        "DOMICILIO", array[12]).replace("COLONIA",array[13]).replace(
+                                            "CP", array[14]))
+
+            fin.close()
+            fout.close()
+            print("CERTIFICATE GENERATED SUCCESSFULLY")
+
+    except:
+        print("Something went wrong with the DB file")
+
+    #Split the line register

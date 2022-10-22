@@ -13,6 +13,7 @@ from show_file import showFile
 from search_word import searchWord
 from admin_menu import adminMenu
 from pdf_convert import pdfConvert
+from split import generateCertificates
 
 def combinar_archivos(folio, persona, persona_folio):
 
@@ -169,7 +170,7 @@ while option != 6:
         dbMenu()
         dboption = int(input("Enter your option: \n"))
 
-        while dboption != 5:
+        while dboption != 6:
 
             if dboption == 1:
                 #Upload new register in database
@@ -181,27 +182,27 @@ while option != 6:
                 #TODO: CUSTOM PROPERTIES UNCOMMENT THIS
 
                 #Add the params for the format
-                #instituto = input("Enter your School: \n")
-                #nombre = input("Enter the student name: \n")
-                #registro = input("Enter the student register: \n")
-                #carrera = input("Enter the student career: \n")
-                #duracion = input("Enter the duration career: \n")
-                #actual = input("Enter the actual duration: \n")
-                #fecha = input("Enter the date: \n")
-                #responsable = input("Enter the current supervisor \n")
-                #cargo = input("Enter the supervisor position: \n")
-                #correo = input("Enter the supervisor email \n")	
-                #telefono = input("Enter the school number: \n")
-                #domicilio = input("Enter the school address: \n")
-                #colonia = input("Enter the school colony: \n")
-                #cp = input("Enter the school cp: \n")
+                instituto = input("Enter your School: \n")
+                nombre = input("Enter the student name: \n")
+                registro = input("Enter the student register: \n")
+                carrera = input("Enter the student career: \n")
+                duracion = input("Enter the duration career: \n")
+                actual = input("Enter the actual duration: \n")
+                fecha = input("Enter the date: \n")
+                responsable = input("Enter the current supervisor \n")
+                cargo = input("Enter the supervisor position: \n")
+                correo = input("Enter the supervisor email \n")	
+                telefono = input("Enter the school number: \n") 
+                domicilio = input("Enter the school address: \n")
+                colonia = input("Enter the school colony: \n")
+                cp = input("Enter the school cp: \n")
 
                 #Add register with the new id
-                #addRegister(id, instituto, nombre, registro, carrera, duracion, actual, fecha, responsable, cargo, correo, telefono, domicilio, colonia, cp)
+                addRegister(id, instituto, nombre, registro, carrera, duracion, actual, fecha, responsable, cargo, correo, telefono, domicilio, colonia, cp)
 
 
                 #TODO: COMMENT THIS FOR CUSTOM UPLOAD
-                addRegister(id, "UVM", "RUBI ESPINAL FLORES", "14301085", "INGENIERIA FORECENCE", "9", "5", "20 Octubre 2022", "ING. AHTZIRY", "DIRECTORA", "aht@hotmail.com", "3320912074", "Prolo. Revolcion", "Nextipac", "45220")
+                #addRegister(id, "UVM", "RUBI ESPINAL FLORES", "14301085", "INGENIERIA FORECENCE", "9", "5", "20 Octubre 2022", "ING. AHTZIRY", "DIRECTORA", "aht@hotmail.com", "3320912074", "Prolo. Revolcion", "Nextipac", "45220")
             
             elif dboption == 2:
 
@@ -239,7 +240,20 @@ while option != 6:
 
                 print("Deletes files: \n")
                 showFile("deletes.txt")
+
+            elif dboption == 5:
+
+                print("*** Generate certificates *** \n")
+
+                showFile("DB.txt")
                 
+                certificates = input("Which registers would you like to generate: \n")
+
+
+
+                #generateCertificates("3,")
+
+                print(certificates)
                 
                 
                 
